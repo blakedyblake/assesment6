@@ -168,20 +168,201 @@
   function computerMove() {
       // Make next possible move for the computer
 
-      for (var i = 0; i < 9; i++) {
-          if (i === 3 || i === 7){
-              if(board[i]!=='X'){
-                board[i] = "O";
-                return board;
-              }
+     
+        //   if (i === 3 || i === 7){
+        //       if(board[i]!=='X'){
+        //         board[i] = "O";
+        //         return board;
+        //       }
               
-          }
-          if (board[i] === null) {
+        //   }
+        let i = stragtegize();
+        console.log(i);
+        if (board[i] === null) {
               board[i] = "O";
               return board;
-          }
-      }
+        }
+      
   }
+
+  function stragtegize(){
+      //Where on the board is O
+      let obj = {
+          "options":[],
+      };
+
+      console.log("Is it working?")
+      
+              
+    if(board[0] === "O"){
+                  if(board[1] === "O"){
+                      if(board[2]===null){
+                          return 2;
+                      }
+                  }else if(board[1] === null){
+                    obj["options"].push(1)
+                  }
+                  if(board[3] === "O"){
+                      if(board[6]===null){
+                          return 6;
+                      }
+                  }else if(board[3] === null){
+                    obj["options"].push(3)
+                  }
+                  if(board[4] === "O"){
+                      if(board[8]===null){
+                          return 8;
+                      }
+                  }else if(board[4] === null){
+                    obj["options"].push(4)
+                  }
+                }
+    if(board[1] === "O"){
+                  if(board[2] === "O"){
+                      if(board[0]===null){
+                          return 0;
+                      }
+                  }else if(board[2] === null){
+                    obj["options"].push(2)
+                  }
+                  if(board[4] === "O"){
+                      if(board[7]===null){
+                          return 7;
+                      }
+                  }else if(board[4] === null){
+                    obj["options"].push(4)
+                  }
+                  if(board[1]===null) obj["options"].push(1)
+
+                }
+    if(board[2] === "O"){
+                  if(board[4] === "O"){
+                      if(board[6]===null){
+                          return 6;
+                      }
+                  }else if(board[4] === null){
+                    obj["options"].push(4)
+                  }
+                  if(board[5] === "O"){
+                      if(board[8]===null){
+                          return 8;
+                      }
+                  }else if(board[5] === null){
+                    obj["options"].push(5)
+                  }
+                  if(board[1]===null) obj["options"].push(1)
+                  
+                }
+    if(board[3] === "O"){
+                  if(board[6] === "O"){
+                      if(board[0]===null){
+                          return 0;
+                      }
+                  }else if(board[6] === null){
+                    obj["options"].push(6)
+                  }
+                  if(board[0]===null) obj["options"].push(0)
+                  if(board[4] === "O"){
+                      if(board[5]===null){
+                          return 5;
+                      }
+                  }else if(board[4] === null){
+                    obj["options"].push(4)
+                  }
+                  
+                  }
+    if(board[4] === "O"){
+                  if(board[5] === "O"){
+                      if(board[3]===null){
+                          return 3;
+                      }
+                  }else if(board[5] === null){
+                    obj["options"].push(5)
+                  }
+                  if(board[0]===null) obj["options"].push(0)
+                  if(board[1]===null) obj["options"].push(1)
+                  if(board[2]===null) obj["options"].push(2)
+                  if(board[3]===null) obj["options"].push(3)
+
+                  if(board[6] === "O"){
+                      if(board[2]===null){
+                          return 2;
+                      }
+                  }else if(board[6] === null){
+                    obj["options"].push(6)
+                  }
+                  if(board[7] === "O"){
+                      if(board[1]===null){
+                          return 1;
+                      }
+                  }else if(board[7] === null){
+                    obj["options"].push(7)
+                  }
+
+                  if(board[8]=="O"){
+                      if(board[0]===null){
+                          return 0
+                      }
+                  }else if(board[8] === null){
+                      obj["options"].push(8)
+                  }
+                }
+    if(board[5] === "O"){
+                  if(board[8] === "O"){
+                      if(board[2]===null){
+                          return 2;
+                      }
+                  }else if(board[8] === null){
+                    obj["options"].push(8)
+                  }
+                  if(board[2]===null) obj["options"].push(2)
+                  if(board[4]===null) obj["options"].push(4)
+
+
+                
+                }
+    if(board[6] === "O"){
+                  if(board[7] === "O"){
+                      if(board[8]===null){
+                          return 8;
+                      }
+                  }else if(board[7] === null){
+                    obj["options"].push(7)
+                  }
+                  if(board[3]===null) obj["options"].push(3)
+                  if(board[4]===null) obj["options"].push(4)
+
+                  
+                }
+    if(board[7] === "O"){
+                  if(board[8] === "O"){
+                      if(board[6]===null){
+                          return 6;
+                      }
+                  }else if(board[8] === null){
+                    obj["options"].push(8)
+                  }
+                  if(board[6]===null) obj["options"].push(6)
+                  if(board[4]===null) obj["options"].push(4)
+
+
+                  
+                }
+    if(board[8] === "O"){
+                  if(board[4]===null) obj["options"].push(4)
+                  if(board[5]===null) obj["options"].push(5)
+                  if(board[7]===null) obj["options"].push(7)
+                    
+                }
+    
+    if(obj["options"].length === 0){
+        return Math.floor(Math.random()*9)
+    }
+      console.log(obj)
+      let randChoice = Math.floor(Math.random()*obj["options"].length)
+      return obj["options"][randChoice];
+  
+    }
 
 
   function checkGameOver() {
