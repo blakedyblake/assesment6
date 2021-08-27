@@ -41,7 +41,7 @@
 </head>
 <body>
 
-<h1>Tic Tac Toe
+<h1 id="Title">Tic Tac Toe
   <button id="start-game">Start!</button>
 </h1>
 
@@ -374,6 +374,7 @@
       if (winner) {
           $("h1").text(winner + " won");
           gameOver = true;
+          document.getElementById("Title").style.left = '45%';
       }
 
       else if (isBoardFull()) {
