@@ -170,7 +170,7 @@
 
       for (var i = 0; i < 9; i++) {
           if (i === 3 || i === 7){
-              if(board[i]=='X'){
+              if(board[i]!=='X'){
                 board[i] = "O";
                 return board;
               }
