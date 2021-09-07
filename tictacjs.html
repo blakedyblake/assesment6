@@ -177,6 +177,9 @@
               
         //   }
         let i = stragtegize();
+        while(board[i] === 'X'){
+          i = stragtegize();
+        }
         console.log(i);
         if (board[i] === null) {
               board[i] = "O";
